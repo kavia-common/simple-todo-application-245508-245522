@@ -1,82 +1,86 @@
-# Lightweight React Template for KAVIA
+# React Frontend (KAVIA Template)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This folder contains the React frontend for this repository. At the moment, the app is a lightweight Create React App (CRA) based template with a light/dark theme toggle and basic styling.
 
-## Features
+## What is implemented right now
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+The current UI is a starter page that includes:
 
-## Getting Started
+- A light/dark theme toggle button that updates the `data-theme` attribute on the document root.
+- Basic responsive styling and theme variables defined in `src/App.css`.
+- The default CRA “Learn React” link and logo content.
 
-In the project directory, you can run:
+This repository’s work item mentions a todo application with CRUD, filtering, and `localStorage` persistence. Those todo features are not present in the current `src/App.js`, so this README documents the behavior that is actually implemented in the codebase today.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js (an LTS version is recommended)
+- npm (ships with Node.js)
 
-### `npm test`
+## Setup
 
-Launches the test runner in interactive watch mode.
+From this directory:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
 ```
 
-### Components
+## Run locally
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+```bash
+npm start
+```
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+By default, Create React App runs at:
 
-## Learn More
+- http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Test
 
-### Code Splitting
+Create React App’s test runner can be started with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm test
+```
 
-### Analyzing the Bundle Size
+Note: CRA runs tests in watch mode by default when executed locally.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Build
 
-### Making a Progressive Web App
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This creates an optimized production build in the `build/` directory.
 
-### Advanced Configuration
+## Configuration (environment variables)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project supports standard CRA-style environment variables prefixed with `REACT_APP_`. The repository’s `.env` includes keys such as:
 
-### Deployment
+- `REACT_APP_API_BASE`
+- `REACT_APP_BACKEND_URL`
+- `REACT_APP_FRONTEND_URL`
+- `REACT_APP_WS_URL`
+- `REACT_APP_NODE_ENV`
+- `REACT_APP_NEXT_TELEMETRY_DISABLED`
+- `REACT_APP_ENABLE_SOURCE_MAPS`
+- `REACT_APP_PORT`
+- `REACT_APP_TRUST_PROXY`
+- `REACT_APP_LOG_LEVEL`
+- `REACT_APP_HEALTHCHECK_PATH`
+- `REACT_APP_FEATURE_FLAGS`
+- `REACT_APP_EXPERIMENTS_ENABLED`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+In the current implementation, these variables are not referenced by the React source code. They are documented here for completeness and future extension.
 
-### `npm run build` fails to minify
+## Project structure (high level)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `public/` contains the HTML template and static assets.
+- `src/index.js` mounts the React application.
+- `src/App.js` contains the main UI (theme toggle and starter content).
+- `src/App.css` defines theme variables and component styles.
+
+## Notes
+
+- This is a frontend-only project; there is no backend dependency required to run the current UI.
+- Theme behavior is implemented by setting `data-theme` on `document.documentElement` and using CSS variables in `src/App.css`.
